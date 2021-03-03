@@ -104,13 +104,12 @@ class DouBanAccessibilityService : AccessibilityService() {
         Log.d(TAG, "---------------found input-----:$count")
 
 
-        //点击弹起键盘
+       //点击弹起键盘
         val isSuccess = editText.performAction(AccessibilityNodeInfo.ACTION_CLICK)
         if(!isSuccess){
             //流程回归
             runningType = 0
         }
-
 
         try {
             //一秒
@@ -126,23 +125,28 @@ class DouBanAccessibilityService : AccessibilityService() {
             return
         }
         count++
+
+       val sentence= CommentsContent.getListText()
+        Log.d(TAG, "--------------- sentence-----:$sentence")
         val arguments = Bundle()
         //输入框中输入礼花
         arguments.putCharSequence(
             AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,
-            "up count:$count"
+            sentence
         )
+
+
         input.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, arguments)
 
 
         val sendView=findSendText()
 
         if (sendView == null) {
-            runningType = 0
+           runningType = 0
             return
         }
 
-        val isSendSuccess = sendView.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+      val isSendSuccess = sendView.performAction(AccessibilityNodeInfo.ACTION_CLICK)
 
         if(!isSendSuccess){
             runningType = 0
@@ -154,6 +158,7 @@ class DouBanAccessibilityService : AccessibilityService() {
             val randoms = (30..60).random().toLong()
             Log.d(TAG, "---------------randoms-----:$randoms")
             Thread.sleep(1000*60*randoms)
+          //  Thread.sleep(1000*6)
 
 
         }catch (e:Exception){
