@@ -85,9 +85,9 @@ class DouBanAccessibilityService : AccessibilityService() {
 
         //是否判断时间，减少深夜回复。
         val hours=Date().hours
-        if(hours==24){
-            //休眠一个小时*8就是八个小时
-            Thread.sleep(1000*60*60*8)
+        if(hours<9){
+            //休眠
+            Thread.sleep(1000*60*60)
             startFireworks()
             return
         }

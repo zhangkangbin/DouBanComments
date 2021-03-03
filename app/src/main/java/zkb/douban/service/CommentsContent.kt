@@ -35,8 +35,8 @@ class CommentsContent {
                 list.add("邓邓.....邓邓邓，邓，邓邓")
                 list.add("刚刚还身兼多职，撒花的也是他，花是他从小葱哪里借来的，待会要捡起来，还回去。")
                 list.add("婚礼仪式结束后，他们推开门，那一瞬间，外面烟雾缭绕，香味扑鼻。")
-                list.add("原来是四名刺客，他们早早就守住教堂门口了，还劫持这小盐")
-                list.add("四名刺客都拿着双刀，博杀了不久，他们终究还是全军覆灭，刺客们舔了一下手中的刀，慢慢离去....。")
+                list.add("原来是四名刺客，他们早早就守住教堂门口了，还劫持着小盐")
+                list.add("四名刺客都拿着双刀，他们与刺客博杀了不久后，终究还是全军覆灭，刺客们舔了一下手中的刀，转过身，慢慢离去....。")
                 list.add("后人为了缅怀他们英勇奋战，给他们起了一个名字，叫做:洋葱炖鸡")
                 list.add("第一季完结！")
                 list.add("the end!")
@@ -50,7 +50,7 @@ class CommentsContent {
         }
 
 
-         fun getApiSentence(): String {
+        private fun getApiSentence(): String {
              var sentence="";
             val request = Request.Builder()
                 .url("https://abc.mcloc.cn/abc/api/words/")
@@ -66,7 +66,8 @@ class CommentsContent {
                 }
             })
 
-             Thread.sleep(2000)
+             //休眠三秒等待api获取句子
+             Thread.sleep(3000)
 
             if(sentence.isEmpty()){
                 return getSentence();
