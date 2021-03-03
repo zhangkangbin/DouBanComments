@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="去打开放烟花"
+        android:text="去打开回帖"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:text=" 单位为秒" />
+        android:text=" 单位为分吧---主要减少封号概率，建议30分钟一个回帖。" />
 
     <EditText
         android:id="@+id/edtSecond"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:text="放烟花次数" />
+        android:text="回帖次数" />
 
     <EditText
         android:id="@+id/edtMsgCount"

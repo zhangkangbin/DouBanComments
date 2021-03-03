@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import java.util.*
 
 /**
  * 豆瓣回帖
@@ -82,6 +83,14 @@ class DouBanAccessibilityService : AccessibilityService() {
             return
         }*/
 
+        //是否判断时间，减少深夜回复。
+        val hours=Date().hours
+        if(hours==24){
+            //休眠一个小时*8就是八个小时
+            Thread.sleep(1000*60*60*8)
+            startFireworks()
+            return
+        }
 
         runningType = 1
         //寻找输入框
@@ -145,6 +154,7 @@ class DouBanAccessibilityService : AccessibilityService() {
             val randoms = (30..60).random().toLong()
             Log.d(TAG, "---------------randoms-----:$randoms")
             Thread.sleep(1000*60*randoms)
+
 
         }catch (e:Exception){
 
